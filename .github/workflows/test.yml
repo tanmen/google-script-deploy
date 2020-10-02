@@ -1,0 +1,17 @@
+name: test
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: yarn
+      - run: yarn test
+      - run: echo '{"scriptId":"${{ secrets.GOOGLE_SCRIPT_ID }}", "rootDir":"public"}' > .clasp.json
+      - uses: ./
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          refresh-token: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
+          client-id: ${{ secrets.GOOGLE_CLIENT_ID }}
+          client-secret: ${{ secrets.GOOGLE_CLIENT_SECRET }}

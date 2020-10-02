@@ -1,0 +1,21 @@
+{
+  "name": "google-script-deploy",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "prebuild": "node scripts/prebuild.js",
+    "build": "tsc",
+    "postbuild": "ncc build dist/index.js",
+    "test": "exit 0"
+  },
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@google/clasp": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.11.2",
+    "@zeit/ncc": "^0.22.3",
+    "fs-extra": "^9.0.1"
+  }
+}

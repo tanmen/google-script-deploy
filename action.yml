@@ -1,0 +1,34 @@
+name: Google Script Deploy
+description: Google Script Deploy
+branding:
+  icon: check
+  color: green
+inputs:
+  github-token:
+    description: Github Token
+    required: true
+  refresh-token:
+    description: Google Refresh Token
+    required: true
+  client-id:
+    description: Google Client ID
+    required: true
+  client-secret:
+    description: Google Client Sercret
+    required: true
+  deploy:
+    description: If false, skip Deploy flow.
+    default: 'true'
+    required: false
+  deploy-version-number:
+    description: Script Version Number
+    required: false
+  deploy-description:
+    description: Script Deploy Description
+    required: false
+  deploy-id:
+    description: Script Deploy ID
+    required: false
+runs:
+  using: node12
+  main: dist/index.js
