@@ -1,4 +1,3 @@
-import {exec} from 'child_process';
 import {promises} from "fs";
 import {homedir} from "os";
 import {join} from "path";
@@ -6,11 +5,8 @@ import {clientId, clientSecret, refreshToken} from "../config";
 
 const {writeFile} = promises;
 export const initialize = () =>
-  Promise.all([
-    exec('npm install -g @google/clasp'),
-    writeFile(join(homedir(), '.clasprc.json'),
-      JSON.stringify(clasprc(refreshToken, clientId, clientSecret)))
-  ])
+  writeFile(join(homedir(), '.clasprc.json'),
+    JSON.stringify(clasprc(refreshToken, clientId, clientSecret)))
 
 const clasprc = (refreshToken: string, clientId: string, clientSecret: string) => ({
   token: {
