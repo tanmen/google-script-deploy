@@ -2,7 +2,7 @@ import {exec} from 'child_process';
 import {promises} from "fs";
 import {homedir} from "os";
 import {join} from "path";
-import {clientId, clientSecret, refreshToken} from "./config";
+import {clientId, clientSecret, refreshToken} from "../config";
 
 const {writeFile} = promises;
 export const initialize = () =>

@@ -18,8 +18,8 @@ inputs:
     required: true
   deploy:
     description: If false, skip Deploy flow.
-    default: 'true'
     required: false
+    default: 'true'
   deploy-version-number:
     description: Script Version Number
     required: false
@@ -30,5 +30,14 @@ inputs:
     description: Script Deploy ID
     required: false
 runs:
-  using: node12
-  main: dist/index.js
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.github-token }}
+    - ${{ inputs.refresh-token }}
+    - ${{ inputs.client-id }}
+    - ${{ inputs.client-secret }}
+    - ${{ inputs.deploy }}
+    - ${{ inputs.deploy-version-number }}
+    - ${{ inputs.deploy-description }}
+    - ${{ inputs.deploy-id }}

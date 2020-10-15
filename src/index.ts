@@ -1,6 +1,5 @@
-import {exec} from "./exec";
-import {initialize} from "./initialize";
+import {deploy, initialize, push} from "./actions";
 
 initialize()
-  .then(() => exec('clasp push'))
-  .then(() => exec('clasp deploy'));
+  .then(() => push())
+  .then(() => deploy());
