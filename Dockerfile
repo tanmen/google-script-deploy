@@ -13,4 +13,4 @@ RUN yarn build
 
 WORKDIR /github/workspace
 
-ENTRYPOINT ["node", "/home/action/dist/index.js"]
+ENTRYPOINT ["node", "/home/action"]
