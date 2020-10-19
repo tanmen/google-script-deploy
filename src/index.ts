@@ -1,6 +1,8 @@
-import {exec} from "./exec";
-import {initialize} from "./initialize";
+import {setFailed} from "@actions/core";
+import {deploy, initialize} from "./actions";
+import {report} from "./report";
 
 initialize()
-  .then(() => exec('clasp push'))
-  .then(() => exec('clasp deploy'));
+  .then(() => deploy())
+  .then(id => report(id))
+  .catch(e => setFailed(e));

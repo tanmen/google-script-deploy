@@ -1,7 +1,7 @@
 {
   "name": "google-script-deploy",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
     "prebuild": "node scripts/prebuild.js",
@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0",
     "@google/clasp": "^2.3.0"
   },
   "devDependencies": {
