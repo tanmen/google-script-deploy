@@ -1,7 +1,8 @@
 import {setFailed} from "@actions/core";
-import {deploy, initialize, push} from "./actions";
+import {deploy, initialize} from "./actions";
+import {report} from "./report";
 
 initialize()
-  .then(() => push())
   .then(() => deploy())
+  .then(id => report(id))
   .catch(e => setFailed(e));

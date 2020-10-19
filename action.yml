@@ -1,8 +1,8 @@
 name: Google Script Deploy
 description: Google Script Deploy
 branding:
-  icon: check
-  color: green
+  icon: package
+  color: blue
 inputs:
   github-token:
     description: Github Token
@@ -16,14 +16,10 @@ inputs:
   client-secret:
     description: Google Client Sercret
     required: true
-  deploy:
-    description: If false, skip Deploy flow.
-    required: false
-    default: 'true'
-  deploy-version-number:
+  version-number:
     description: Script Version Number
     required: false
-  deploy-description:
+  description:
     description: Script Deploy Description
     required: false
   deploy-id:
@@ -37,7 +33,6 @@ runs:
     - ${{ inputs.refresh-token }}
     - ${{ inputs.client-id }}
     - ${{ inputs.client-secret }}
-    - ${{ inputs.deploy }}
     - ${{ inputs.deploy-version-number }}
     - ${{ inputs.deploy-description }}
     - ${{ inputs.deploy-id }}
